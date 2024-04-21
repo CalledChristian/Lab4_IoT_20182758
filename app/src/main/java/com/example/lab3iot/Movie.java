@@ -1,7 +1,12 @@
 package com.example.lab3iot;
 
+import android.net.Uri;
+
 import com.google.gson.annotations.SerializedName;
-public class Movie {
+
+import java.io.Serializable;
+
+public class Movie  {
 
     @SerializedName("Title")
     private String title;
