@@ -69,15 +69,24 @@ public class BuscadorPeliculasActivity extends AppCompatActivity {
                     trama.setText(movie.getTrama());
                     List<Rating> ratings = movie.getRating();
                     int lenRatings = ratings.size();
-                    /*for (Rating rating : ratings){
-                        TextView textView = new TextView(this);
-                        textView.setText(rating);
+                    for (Rating rating : ratings){
+                        TextView textView = new TextView(BuscadorPeliculasActivity.this);
+                        TextView textView1 = new TextView(BuscadorPeliculasActivity.this);
+                        textView.setText(rating.getSource());
+                        textView1.setText(rating.getValue());
+                        //basado en gpt
                         textView.setLayoutParams(new LinearLayout.LayoutParams(
                                 LinearLayout.LayoutParams.WRAP_CONTENT,
                                 LinearLayout.LayoutParams.WRAP_CONTENT));
 
+                        textView1.setLayoutParams(new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.WRAP_CONTENT,
+                                LinearLayout.LayoutParams.WRAP_CONTENT));
+
                         container.addView(textView);
-                    }*/
+                        container.addView(textView1);
+                        ///
+                    }
 
                 }else{
                     Log.d("msg-test", "error en la respuesta del webservice");
