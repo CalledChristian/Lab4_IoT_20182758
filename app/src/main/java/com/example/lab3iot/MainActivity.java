@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         movieIMDb = findViewById(R.id.editTextText);
         buscarButton = findViewById(R.id.button2);
+        movieId = movieIMDb.getEditableText().toString();
 
         //codigo basado en gpt
         //inicio
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (!movieId.isEmpty()) {
                     movieId = movieIMDb.getEditableText().toString();
-                    Log.d("id",movieId);
+                    Log.d("msg-test",movieId);
                 } else {
                     Toast.makeText(MainActivity.this, "Ingrese un ID de IMDb", Toast.LENGTH_SHORT).show();
                 }

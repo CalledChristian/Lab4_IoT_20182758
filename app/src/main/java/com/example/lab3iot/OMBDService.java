@@ -9,8 +9,10 @@ import retrofit2.http.Query;
 
 public interface OMBDService {
 
-    @FormUrlEncoded
-    @POST("/?apikey=bf81d461")
-    Call<Movie> getMovie (@Field("i") String id);
+    //@FormUrlEncoded
+    //?apikey=bf81d461"
+    @GET("/")
+    Call<Movie> getMovie (  @Query("apikey") String apikey,
+                            @Query("i") String id);
 
 }

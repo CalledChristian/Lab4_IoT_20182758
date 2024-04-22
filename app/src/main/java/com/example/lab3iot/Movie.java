@@ -5,6 +5,7 @@ import android.net.Uri;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Movie  {
 
@@ -27,6 +28,9 @@ public class Movie  {
 
     @SerializedName("Plot")
     private String trama;
+
+    @SerializedName("Ratings")
+    private List<Rating> rating;
 
     /*@SerializedName("Ratings")
     private List<Rating> rating;*/
@@ -85,5 +89,13 @@ public class Movie  {
 
     public void setTrama(String trama) {
         this.trama = trama;
+    }
+
+    public List<Rating> getRating() {
+        return rating;
+    }
+
+    public void setRating(List<Rating> rating) {
+        this.rating = rating;
     }
 }

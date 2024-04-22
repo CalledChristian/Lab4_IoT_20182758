@@ -32,6 +32,7 @@ public class BuscadorPeliculasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_buscador_peliculas);
 
         //datos de pelicula
+        TextView pelicula = findViewById(R.id.text1);
         TextView director = findViewById(R.id.textdirector);
         TextView actores = findViewById(R.id.campo2_1);
         TextView fechaEstreno = findViewById(R.id.campo3_1);
@@ -49,12 +50,13 @@ public class BuscadorPeliculasActivity extends AppCompatActivity {
                 .build()
                 .create(OMBDService.class);
 
-        ombdService.getMovie(movieID).enqueue(new Callback<Movie>() {
+        ombdService.getMovie("bf81d461",movieID).enqueue(new Callback<Movie>() {
             @Override
             public void onResponse(Call<Movie> call, Response<Movie> response) {
                 if(response.isSuccessful()) {
                     Movie movie = response.body();
                     Log.d("msg-test", "aws: " + movie.getDirector());
+                    pelicula.setText(movie.getTitle());
                     director.setText(movie.getDirector());
                     actores.setText(movie.getActores());
                     fechaEstreno.setText(movie.getFechaEstreno());
@@ -71,7 +73,6 @@ public class BuscadorPeliculasActivity extends AppCompatActivity {
                 t.printStackTrace();
             }
 
-            //primero crear el intent
 
         });
 
