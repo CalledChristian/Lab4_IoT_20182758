@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +42,7 @@ public class BuscadorPeliculasActivity extends AppCompatActivity {
         TextView generos = findViewById(R.id.campo4_1);
         TextView escritores = findViewById(R.id.campo5_1);
         TextView trama = findViewById(R.id.text10);
+        LinearLayout container = findViewById(R.id.container);
 
 
         Intent intent1 = getIntent();
@@ -63,6 +67,17 @@ public class BuscadorPeliculasActivity extends AppCompatActivity {
                     generos.setText(movie.getGeneros());
                     escritores.setText(movie.getEscritores());
                     trama.setText(movie.getTrama());
+                    List<Rating> ratings = movie.getRating();
+                    int lenRatings = ratings.size();
+                    /*for (Rating rating : ratings){
+                        TextView textView = new TextView(this);
+                        textView.setText(rating);
+                        textView.setLayoutParams(new LinearLayout.LayoutParams(
+                                LinearLayout.LayoutParams.WRAP_CONTENT,
+                                LinearLayout.LayoutParams.WRAP_CONTENT));
+
+                        container.addView(textView);
+                    }*/
 
                 }else{
                     Log.d("msg-test", "error en la respuesta del webservice");

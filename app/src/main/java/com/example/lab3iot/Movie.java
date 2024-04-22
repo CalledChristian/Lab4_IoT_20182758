@@ -32,8 +32,6 @@ public class Movie  {
     @SerializedName("Ratings")
     private List<Rating> rating;
 
-    /*@SerializedName("Ratings")
-    private List<Rating> rating;*/
 
     public String getTitle() {
         return title;
